@@ -1,0 +1,53 @@
+---
+layout: chrome
+---
+<div class="readable-content blog-single">
+    <article>
+        <header class="entry-header">
+            <h1 class="entry-title">{{ page.title }}</h1>
+        </header>
+        <div class="entry-meta">
+            <span class="post-category">
+                <i class="icon-folder-close"></i>
+                {% for category in page.categories %}
+                <a href="/{{ category | to_url }}" rel="category tag">{{ category }}</a>
+                {% endfor %}
+            </span>
+            <span class="post-date">
+                <i class="icon-time"></i><a href="{{ page.subposts[0].permalink | default: page.permalink }}">{{ page.date | date:'%d-%m-%Y'}}</a>
+            </span>
+            <span class="by-author">
+                <i class="icon-user"></i><span class="author vcard"><a href="/uploader/{{ page.contributor | to_url }}">{{ page.contributor }}</a></span>
+            </span>
+        </div>
+        <div class="entry-content clearfix">
+            {{ content | wpautop }}
+            {% if page.subposts %}
+            <div class="page-links clearfix">
+                {% for subpost in page.subposts %}
+                {% assign page_num = forloop.index + 1 %}
+                {% if forloop.index0 == page.subpost_index %}
+                {{ page_num }}
+                {% else %}
+                <a href="{{ subpost.permalink }}">{{ page_num }}</a>
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        <footer class="entry-meta post-tags">
+            {% for tag in page.tags %}
+            <a href="/tag/{{ tag | slugify | to_url }}">{{ tag | escape }}</a>
+            {% endfor %}
+        </footer>
+    </article>
+    {% if page.dsq_thread_id.size > 0 %}
+    <amp-iframe width="600" height="140"
+                layout="responsive"
+                sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms"
+                resizable
+                src="{{ site.disqus_url }}/{{ page.dsq_thread_id }}">
+        <div overflow tabindex=0 role=button aria-label="Disqus">Loading disqus...</div>
+    </amp-iframe>
+    {% endif %}
+</div>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html amp lang="en">
+<head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <link rel="shortcut icon" href="/images/favicon.gif">
+    <title>{% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+    {% include schema.amp.html %}
+    {% include style.amp.html %}
+</head>
+<body>
+    <div id="page">
+        {% include content-header.amp.html %}
+        <section id="main" class="middle wrapper">
+            <div class="row row-fluid">
+                <div id="primary" class="site-content">
+                    <div id="content" role="main">
+                        {{ content }}
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% include content-footer.amp.html %}
+    </div>
+</body>
+</html>
