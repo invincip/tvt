@@ -35,6 +35,6 @@ jekyll-archives:
 paginate: 5
 # Build settings
 markdown: kramdown
-exclude: [Gemfile, Gemfile.lock, firebase.json]
+exclude: [Gemfile, Gemfile.lock, firebase.json, vendor]
 sass:
   style: compressed
