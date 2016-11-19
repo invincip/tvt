@@ -13,8 +13,6 @@ gem "jekyll", "3.2.1"
 
 gem "stringex"
 
-gem "jekyll-archives"
-
 gem "jekyll-paginate"
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and

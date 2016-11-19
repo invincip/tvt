@@ -14,7 +14,7 @@ layout: chrome
                 </h3>
                 <span class="date">
                     {% for category in post.categories %}
-                        <a href="/{{ site.data.categories[category] | default:category | slugify }}" rel="category tag">{{ category | escape }}</a>
+                        <a href="/{{ category | slugify }}" rel="category tag">{{ category | escape }}</a>
                     {% endfor %} / {{ post.date | date:'%d-%m-%Y'}}
                 </span>
             </li>
@@ -33,7 +33,7 @@ layout: chrome
                 </h3>
                 <span class="date">
                     {% for category in post.categories %}
-                        <a href="/{{ site.data.categories[category] | default:category | slugify }}" rel="category tag">{{ category | escape }}</a>
+                        <a href="/{{ category | slugify }}" rel="category tag">{{ category | escape }}</a>
                     {% endfor %} / {{ post.date | date:'%d-%m-%Y'}}
                 </span>
             </li>
@@ -52,7 +52,7 @@ layout: chrome
                 </h3>
                 <span class="date">
                     {% for category in post.categories %}
-                        <a href="/{{ site.data.categories[category] | default:category | slugify }}" rel="category tag">{{ category | escape }}</a>
+                        <a href="/{{ category | slugify }}" rel="category tag">{{ category | escape }}</a>
                     {% endfor %} / {{ post.date | date:'%d-%m-%Y'}}
                 </span>
             </li>
@@ -69,7 +69,7 @@ layout: chrome
                 </h3>
                 <span class="date">
                     {% for category in post.categories %}
-                        <a href="/{{ site.data.categories[category] | default:category | slugify }}" rel="category tag">{{ category | escape }}</a>
+                        <a href="/{{ category | slugify }}" rel="category tag">{{ category | escape }}</a>
                     {% endfor %} / {{ post.date | date:'%d-%m-%Y'}}
                 </span>
             </li>

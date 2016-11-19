@@ -7,18 +7,33 @@ layout: chrome
     </header>
     <div class="post-list">
         <ul>
-            {% for post in page.posts %}
+            {% for post in page.paginator.posts %}
             <li>
                 <h3>
                     <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
                 </h3>
                 <span class="date">
+                    {% if page.archive_type != 'category' %}
                     {% for category in post.categories %}
-                        <a href="/{{ site.data.categories[category] | default:category | slugify }}" rel="category tag">{{ category | escape }}</a>
-                    {% endfor %} / {{ post.date | date:'%d-%m-%Y'}}
+                        <a href="/{{ category | slugify }}" rel="category tag">{{ category | escape }}</a>
+                    {% endfor %} /
+                    {% endif %}
+                    {{ post.date | date:'%d-%m-%Y'}}
                 </span>
             </li>
             {% endfor %}
         </ul>
     </div>
+    <nav class="navigation" role="navigation">
+        <div class="nav-previous">
+            {% if page.paginator.next_page %}
+            <a href="{{ page.paginator.next_page_path }}"><i class="fa fa-angle-left"></i>&nbsp;Truyện trước</a>
+            {% endif %}
+        </div>
+        <div class="nav-next">
+            {% if page.paginator.previous_page %}
+            <a href="{{ page.paginator.previous_page_path }}">Truyện sau&nbsp;<i class="fa fa-angle-right"></i></a>
+            {% endif %}
+        </div>
+    </nav>
 </div>

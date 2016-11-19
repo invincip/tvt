@@ -24,14 +24,7 @@ collections:
   subposts:
     output: true
 gems:
-  - jekyll-archives
   - jekyll-paginate
-jekyll-archives:
-  enabled: [tags, categories]
-  layout: 'archive'
-  permalinks:
-    tag: '/tag/:name/'
-    category: '/:name/'
 paginate: 10
 paginate_path: "/page/:num/"
 # Build settings
