@@ -65,11 +65,21 @@ a {
     @media (max-width: 767px) {
         label[for="nav-toggle"] {
             display: block;
+            i.menu-toggle:before {
+                content: "\f0c9";
+            }
         }
-        #nav-toggle:checked + ul {
-            display: block;
-            transition: max-height .3s cubic-bezier(0.4, 0.0, 1, 1);
-            max-height: 600px;
+        #nav-toggle:checked {
+            + label {
+                i.menu-toggle:before {
+                    content: "\f00d";
+                }
+            }
+            ~ ul {
+                display: block;
+                transition: max-height .3s cubic-bezier(0.4, 0.0, 1, 1);
+                max-height: 600px;
+            }
         }
         > ul {
             max-height: 0;
