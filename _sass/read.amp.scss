@@ -286,6 +286,32 @@ ul {
   text-decoration: inherit;
 }
 
+.page-header {
+  text-align: center;
+}
+
+.post-archive {
+  .hentry {
+    padding-bottom: 1em;
+  }
+  .page-header {
+    padding-bottom: 2em;
+  }
+  .page-title {
+    font-size: 1.6em;
+  }
+  .page-header span {
+    font-size: .6em;
+    color: #aaa;
+    margin-left: .6em;
+    margin-right: .6em;
+  }
+  .entry-title {
+    font-size: 1.4em;
+    margin-bottom: 0;
+  }
+}
+
 select {
   padding: .7em;
   width: 262px;

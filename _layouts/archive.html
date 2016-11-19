@@ -1,29 +1,31 @@
 ---
-layout: default
+layout: chrome
 ---
-<header class="page-header">
-  <h1 class="page-title">Thể loại truyện <span class="on">→</span> <span>{{ page.title | escape }}</span></h1>
-</header>
+<div class="post-archive blog-posts readable-content">
+    <header class="page-header">
+        <h1 class="page-title">Thể loại truyện <span class="on">→</span> <span>{{ page.title | escape }}</span></h1>
+    </header>
 {% for post in page.posts %}
-<article class="hentry">
-  <header class="entry-header">
-    <h1 class="entry-title">
-      <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
-    </h1>
-    <div class="entry-meta">
-      <span class="post-category">
-        <i class="icon-folder-close"></i>
-        {% for category in post.categories %}
-        <a href="/{{ site.data.categories[category] | default:category | slugify }}" rel="category tag">{{ category | escape }}</a>
-        {% endfor %}
-      </span>
-      <span class="post-date">
-        <i class="icon-time"></i><a href="{{ page.subposts[0].permalink | default: post.permalink }}">{{ post.date | date:'%d-%m-%Y'}}</a>
-      </span>
-      <span class="by-author">
-        <i class="icon-user"></i><span class="author vcard"><a href="/contributor/{{ post.contributor | slugify }}">{{ post.contributor | escape }}</a></span>
-      </span>
-    </div>
-  </header>
-</article>
+    <article class="hentry">
+        <header class="entry-header">
+            <h1 class="entry-title">
+            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
+            </h1>
+        </header>
+        <div class="entry-meta">
+            <span class="post-category">
+                <i class="fa fa-folder"></i>
+                {% for category in post.categories %}
+                <a href="/{{ site.data.categories[category] | default:category | slugify }}" rel="category tag">{{ category | escape }}</a>
+                {% endfor %}
+            </span>
+            <span class="post-date">
+                <i class="fa fa-clock-o"></i>&nbsp;<a href="{{ page.subposts[0].permalink | default: post.permalink }}">{{ post.date | date:'%d-%m-%Y'}}</a>
+            </span>
+            <span class="by-author">
+                <i class="fa fa-user"></i>&nbsp;<span class="author vcard"><a href="/contributor/{{ post.contributor | slugify }}">{{ post.contributor | escape }}</a></span>
+            </span>
+        </div>
+    </article>
 {% endfor %}
+</div>
