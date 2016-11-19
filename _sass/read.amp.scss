@@ -14,7 +14,7 @@ iframe {
   max-width: 100%;
 }
 
-h1, h2 {
+h1, h2, h3, h4, h5, h6 {
   line-height: 1.5;
   font-weight: 400;
 }
@@ -497,6 +497,12 @@ div.selector {
   a {
     display: inline-block;
     padding: .4em;
+    color: #333;
+    border-bottom: 1px dotted #ccc;
+    &:hover {
+        color: #000;
+        background-color: #f7f7f7;
+    }
   }
   .nav-next {
     text-align: right;
@@ -538,6 +544,56 @@ div.selector {
     a:hover {
       border-bottom: 1px solid #555;
       background: none;
+    }
+  }
+}
+
+.post-list {
+  padding-top: 2em;
+  h2 {
+    text-align: center;
+    font-size: 1.9em;
+  }
+  ul {
+    list-style: none;
+    padding: .4em 0 2em 0;
+  }
+  a {
+    color: #444;
+    &:hover {
+      color: #000;
+    }
+  }
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    float: left;
+    
+    @media (max-width: 767px) {
+      float: none;
+      font-size: 1em;
+    }
+  }
+  .date {
+    color: #aaa;
+    font-size: .9em;
+    float: right;
+    
+    @media (max-width: 767px) {
+      float: none;
+    }
+  }
+  ul li {
+    padding: 1.2em 0 .6em 0;
+    border-bottom: 1px dashed #ddd;
+    &:before {
+      content: " ";
+      display: table;
+    }
+    &:after {
+      content: " ";
+      display: table;
+      clear: both;
     }
   }
 }

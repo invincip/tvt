@@ -6,6 +6,7 @@ body {
 }
 .entry-title {
     margin-top: 0;
+    text-align: center;
     
     & > span {
         font-size: .5em;
@@ -127,5 +128,23 @@ nav.page-links {
     
     span {
         padding: 4px 8px;
+    }
+}
+
+.post-list {
+    padding-top: 0;
+    
+    li span.date a {
+        color: inherit;
+        text-decoration: underline;
+    }
+    
+    &.latest {
+        li {
+            text-align: center;
+            h3, .date {
+                float: none;
+            }
+        }
     }
 }

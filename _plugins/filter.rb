@@ -126,6 +126,18 @@ module Jekyll
       
       html
     end
+  
+    def first_half(array)
+        array[0, array.size / 2]
+    end
+    
+    def second_half(array)
+        array[-array.size / 2, array.size]
+    end
+    
+    def random(array, num)
+      array.sample(num)
+    end
   end
 end
 
