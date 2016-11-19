@@ -18,7 +18,7 @@ email: admin@thuvientruyen.info
 description: Nơi tìm lại cảm xúc!
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://thuvientruyen.info" # the base hostname & protocol for your site
-disqus_url: "https://disqus.thuvientruyen.info/disqus"
+disqus_url: "https://invincip.github.io/tvt/disqus.html"
 lang: vi
 collections:
   subposts:
@@ -32,7 +32,7 @@ jekyll-archives:
   permalinks:
     tag: '/tag/:name/'
     category: '/:name/'
-paginate: 2
+paginate: 5
 # Build settings
 markdown: kramdown
 exclude: [Gemfile, Gemfile.lock, firebase.json]

@@ -8,12 +8,12 @@
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
-    {% include schema.amp.html %}
-    {% include style.amp.html %}
+    {% include schema.html %}
+    {% include style.html %}
 </head>
 <body>
     <div id="page">
-        {% include content-header.amp.html %}
+        {% include header.html %}
         <section id="main" class="middle wrapper">
             <div class="row row-fluid">
                 <div id="primary" class="site-content">
@@ -23,7 +23,7 @@
                 </div>
             </div>
         </section>
-        {% include content-footer.amp.html %}
+        {% include footer.html %}
     </div>
 </body>
 </html>

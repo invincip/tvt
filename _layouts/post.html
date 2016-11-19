@@ -8,16 +8,16 @@ layout: chrome
         </header>
         <div class="entry-meta">
             <span class="post-category">
-                <i class="icon-folder-close"></i>
+                <i class="fa fa-folder"></i>
                 {% for category in page.categories %}
                 <a href="/{{ category | to_url }}" rel="category tag">{{ category }}</a>
                 {% endfor %}
             </span>
             <span class="post-date">
-                <i class="icon-time"></i><a href="{{ page.subposts[0].permalink | default: page.permalink }}">{{ page.date | date:'%d-%m-%Y'}}</a>
+                <i class="fa fa-clock-o"></i>&nbsp;<a href="{{ page.subposts[0].permalink | default: page.permalink }}">{{ page.date | date:'%d-%m-%Y'}}</a>
             </span>
             <span class="by-author">
-                <i class="icon-user"></i><span class="author vcard"><a href="/uploader/{{ page.contributor | to_url }}">{{ page.contributor }}</a></span>
+                <i class="fa fa-user"></i>&nbsp;<span class="author vcard"><a href="/uploader/{{ page.contributor | to_url }}">{{ page.contributor }}</a></span>
             </span>
         </div>
         <div class="entry-content clearfix">
@@ -46,7 +46,7 @@ layout: chrome
                 layout="responsive"
                 sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms"
                 resizable
-                src="{{ site.disqus_url }}/{{ page.dsq_thread_id }}">
+                src="{{ site.disqus_url }}?dsq_url={{ page.subpost[0].dsq_url | default:page.dsq_url }}&amp;dsq_thread_id={{ page.dsq_thread_id }}">
         <div overflow tabindex=0 role=button aria-label="Disqus">Loading disqus...</div>
     </amp-iframe>
     {% endif %}

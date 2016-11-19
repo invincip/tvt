@@ -1,0 +1,15 @@
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    {% if page.layout == 'post' %}
+    "@type": "Book",
+    "headline": "{{ page.subposts[0].title | default:page.title | escape }}",
+    "bookFormat": "EBook",
+    "numberOfPages": "{{ page.subposts | size | default:1 }}"
+    "datePublished": "{{ page.date | date: "%Y-%m-%d" }}"
+    {% else %}
+    "@type": "Website",
+    "headline": "{% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}"
+    {% endif %}
+}
+</script>

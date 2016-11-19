@@ -59,6 +59,23 @@ module Jekyll
     def to_url(string)
       string.to_url
     end
+    
+    def active_then_set_current(url, menu_item)
+        current_menu = '/'
+        case
+        when url.start_with?('/truyen-dai')
+            current_menu = 'truyen-dai'
+        when url.start_with?('/truyen-ngan')
+            current_menu = 'truyen-ngan'
+        when url.start_with?('/one-shot')
+            current_menu = 'one-shot'
+        when url.start_with?('/manga')
+            current_menu = 'manga'
+        end
+        if current_menu == menu_item
+          'current-menu-item'
+        end
+    end
   end
 end
 
