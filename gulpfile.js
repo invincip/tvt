@@ -21,8 +21,24 @@ gulp.task('serve', function () {
         open: false,
         notify: false
     });
+    var reload = debounce(browserSync.reload, 1000);
     // Reloads page when some of the already built files changed:
-    gulp.watch('_site/**/*.*').on('change', browserSync.reload);
+    gulp.watch(['_site/**/*.html', '_site/**/*.css']).on('change', reload);
 });
 
 gulp.task('default', ['build-watch', 'serve']);
+
+function debounce(func, wait, immediate) {
+    var timeout;
+    return function() {
+        var context = this, args = arguments;
+        var later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+}

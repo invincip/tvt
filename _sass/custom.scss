@@ -1,3 +1,6 @@
+$theme-color: #69b930;
+$theme-color-text-contrast: #FFFFFF;
+
 body {
     font-family: "Noticia Text",Georgia,serif;
 }
@@ -24,9 +27,9 @@ h1.site-title a {
     font-family: "Cherry Swash",Georgia,serif;
 }
 a {
-    color: #69b930;
+    color: $theme-color;
     &:hover {
-        color: #35a01b;
+        color: darken($theme-color, 10%);
     }
 }
 .main-navigation {
@@ -48,7 +51,7 @@ a {
     }
     ul {
         .current_page_item > a, .current-menu-item > a {
-            color: #69b930;
+            color: $theme-color;
         }
         .menu-item-has-children > a {
             &:hover, &:active, &:focus {
@@ -87,4 +90,32 @@ hr.post-divider {
     border-bottom: none;
     margin: auto;
     margin-bottom: 16px;
+}
+
+nav.page-links {
+    text-align: center;
+    margin: 16px 0;
+    
+    a {
+        padding: 4px 8px;
+        margin: 0 4px;
+        
+        &:not(.prev):not(.next) {
+            border: 1px solid $theme-color;
+        }
+        &.prev:before {
+            content: '< '
+        }
+        &.next:after {
+            content: ' >'
+        }
+        &.current {
+            background-color: $theme-color;
+            color: $theme-color-text-contrast;
+        }
+    }
+    
+    span {
+        padding: 4px 8px;
+    }
 }

@@ -76,6 +76,56 @@ module Jekyll
           'current-menu-item'
         end
     end
+    
+    def pagination(posts, current_index)
+      html = ''
+      current_page = current_index + 1
+      total_pages = posts.size
+      
+      if total_pages == 1
+        return html
+      end
+
+      if current_page > 1
+        html << "<a class='prev' href='#{posts[current_index - 1].permalink}'>Trước</a>"
+      end
+      
+      html << "<a href='#{posts[0].permalink}'>1</a>"
+
+      if total_pages > 3 && current_page > 3
+        html << "<span>...</span>"
+      end
+      
+      if current_page > 2
+        if current_page == total_pages and total_pages > 3
+          html << "<a href='#{posts[current_index-2].permalink}'>#{current_page - 2}</a>"
+        end
+        html << "<a href='#{posts[current_index-1].permalink}'>#{current_page - 1}</a>"
+      end
+
+      if current_page != 1 and current_page != total_pages
+        html << "<a class='current' href='#{posts[current_index].permalink}'>#{current_page}</a>"
+      end
+
+      if current_page < total_pages - 1
+        html << "<a href='#{posts[current_index+1].permalink}'>#{current_page+1}</a>"
+        if current_page == 1 and total_pages > 3
+          html << "<a href='#{posts[current_index+2].permalink}'>#{current_page+2}</a>"
+        end
+      end
+      
+      if total_pages > 3 && current_page < total_pages - 2
+        html << "<span>...</span>"
+      end
+
+      html << "<a href='#{posts[total_pages-1].permalink}'>#{total_pages}</a>"
+
+      if current_page < total_pages
+        html << "<a class='next' href='#{posts[current_index+1].permalink}'>Tiếp</a>"
+      end
+      
+      html
+    end
   end
 end
 

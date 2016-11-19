@@ -22,17 +22,10 @@ layout: chrome
         </div>
         <div class="entry-content clearfix">
             {{ content | wpautop }}
-            {% if page.subposts %}
-            <div class="page-links clearfix">
-                {% for subpost in page.subposts %}
-                {% assign page_num = forloop.index + 1 %}
-                {% if forloop.index0 == page.subpost_index %}
-                {{ page_num }}
-                {% else %}
-                <a href="{{ subpost.permalink }}">{{ page_num }}</a>
-                {% endif %}
-                {% endfor %}
-            </div>
+            {% if page.subposts.size > 1 %}
+            <nav class="page-links clearfix">
+                {{ page.subposts | pagination:page.subpost_index }}
+            </nav>
             {% endif %}
         </div>
         <footer class="entry-meta post-tags">
