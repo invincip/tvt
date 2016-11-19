@@ -7,4 +7,4 @@ before_install:
   - npm install -g firebase
 script:
   - bundle exec jekyll build
-  - $(npm --global bin)/firebase deploy --token "$FIREBASE_API_TOKEN"
+  - $(npm --global bin)/firebase-tools deploy --token "$FIREBASE_API_TOKEN"
