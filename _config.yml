@@ -33,6 +33,7 @@ jekyll-archives:
     tag: '/tag/:name/'
     category: '/:name/'
 paginate: 10
+paginate_path: "/page/:num/"
 # Build settings
 markdown: kramdown
 exclude: [Gemfile, Gemfile.lock, firebase.json, vendor]
