@@ -148,6 +148,11 @@ module Jekyll
     def random(array, num)
       array.sample(num)
     end
+    
+    # Add thousand separator to number
+    def number(num)
+      num.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
+    end
   end
 end
 

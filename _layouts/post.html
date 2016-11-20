@@ -19,6 +19,9 @@ layout: chrome
             <span class="by-author">
                 <i class="fa fa-user"></i>&nbsp;<span class="author vcard"><a href="{{ page.contributor | slugify | prepend:site.archives.contributor.path }}">{{ page.contributor }}</a></span>
             </span>
+            <span class="pageviews">
+                <i class="fa fa-eye"></i>&nbsp;<span class="count">{{ page.subposts[0].pageviews | default:page.pageviews | default: 0 | number }}</span>
+            </span>
         </div>
         <div class="entry-content clearfix">
             {{ content | wpautop }}

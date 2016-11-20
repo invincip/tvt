@@ -42,6 +42,8 @@ archives:
   author:
     display: tác giả
     path: /tac-gia/
+ga: 'UA-17412298-1'
+ga_profile_id: 'ga:34611732'
     
 # Build settings
 markdown: kramdown
