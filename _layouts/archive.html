@@ -4,7 +4,7 @@ layout: chrome
 <div class="post-archive blog-posts readable-content">
     <header class="page-header">
         <h1 class="page-title">
-            Truyện theo {{ site.archives[page.archive_type].display | default:page.archive_type }}
+            {{ page.paginator.total_posts }} truyện theo {{ site.archives[page.archive_type].display | default:page.archive_type }}
             <span class="on">→</span>
             <span>{{ page.title | escape }}</span>
         </h1>
