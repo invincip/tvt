@@ -39,7 +39,7 @@ layout: chrome
                 layout="responsive"
                 sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms"
                 resizable
-                src="{{ site.disqus_url }}?dsq_url={{ page.subpost[0].dsq_url | default:page.dsq_url }}&amp;dsq_thread_id={{ page.dsq_thread_id }}">
+                src="{{ site.disqus_url }}?dsq_url={{ page.subpost[0].dsq_url | default:page.dsq_url | url_encode }}&amp;dsq_thread_id={{ page.dsq_thread_id | url_encode }}">
         <div overflow tabindex=0 role=button aria-label="Disqus">Loading disqus...</div>
     </amp-iframe>
     {% endif %}
