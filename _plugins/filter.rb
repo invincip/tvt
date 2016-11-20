@@ -71,6 +71,8 @@ module Jekyll
             current_menu = 'one-shot'
         when url.start_with?('/manga')
             current_menu = 'manga'
+        when url.start_with?('/tim-kiem')
+            current_menu = 'tim-kiem'
         end
         if current_menu == menu_item
           'current-menu-item'
