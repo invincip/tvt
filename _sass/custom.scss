@@ -19,6 +19,10 @@ body {
         &:after {
             content: ' -';
         }
+        
+        @media (max-width: 767px) {
+            font-size: .7em;
+        }
     }
 }
 h1, h2, h3, h4, h5, h6, .main-navigation ul li, dt {
@@ -115,10 +119,10 @@ nav.page-links {
             border: 1px solid $theme-color;
         }
         &.prev:before {
-            content: '< '
+            content: '<\00a0'
         }
         &.next:after {
-            content: ' >'
+            content: '\00a0>'
         }
         &.current {
             background-color: $theme-color;

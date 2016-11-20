@@ -92,7 +92,11 @@ module Jekyll
         html << "<a class='prev' href='#{posts[current_index - 1].permalink}'>Trước</a>"
       end
       
-      html << "<a href='#{posts[0].permalink}'>1</a>"
+      if current_page == 1
+        html << "<a class='current' href='#{posts[0].permalink}'>1</a>"
+      else
+        html << "<a href='#{posts[0].permalink}'>1</a>"
+      end
 
       if total_pages > 3 && current_page > 3
         html << "<span>...</span>"
@@ -120,7 +124,11 @@ module Jekyll
         html << "<span>...</span>"
       end
 
-      html << "<a href='#{posts[total_pages-1].permalink}'>#{total_pages}</a>"
+      if current_page == total_pages
+        html << "<a class='current' href='#{posts[total_pages-1].permalink}'>#{total_pages}</a>"
+      else
+        html << "<a href='#{posts[total_pages-1].permalink}'>#{total_pages}</a>"
+      end
 
       if current_page < total_pages
         html << "<a class='next' href='#{posts[current_index+1].permalink}'>Tiếp</a>"
