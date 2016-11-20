@@ -8,6 +8,10 @@ layout: chrome
             <span class="on">→</span>
             <span>{{ page.title | escape }}</span>
         </h1>
+        {% if page.paginator.total_pages > 1 %}
+        {% assign start_number = page.paginator.page | minus:1 | times:page.paginator.per_page | plus:1 %}
+        <h2 class="entry-title"><span class="no-dash">{{ start_number }} → {{ page.paginator.posts.size | minus:1 | plus:start_number }}</span></h2>
+        {% endif %}
     </header>
     <div class="post-list">
         <ul>

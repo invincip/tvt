@@ -60,6 +60,8 @@ layout: chrome
         </ul>
     </div>
     {% else %}
+    {% assign start_number = paginator.page | minus:1 | times:paginator.per_page | plus:1 %}
+    <h2 class="entry-title">{{ paginator.total_posts}} TRUYỆN <span class="no-dash">{{ start_number }} → {{ paginator.posts.size | minus:1 | plus:start_number }}</span></h2>
     <div class="post-list">
         <ul>
             {% for post in paginator.posts %}

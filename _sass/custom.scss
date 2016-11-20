@@ -13,10 +13,10 @@ body {
         display: block;
         color: rgba(0,0,0,.6);
         
-        &:before {
+        &:not(.no-dash):before {
             content: '- ';
         }
-        &:after {
+        &:not(.no-dash):after {
             content: ' -';
         }
         
