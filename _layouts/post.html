@@ -10,14 +10,14 @@ layout: chrome
             <span class="post-category">
                 <i class="fa fa-folder"></i>
                 {% for category in page.categories %}
-                <a href="/{{ category | to_url }}" rel="category tag">{{ category }}</a>
+                <a href="{{ category | slugify | prepend:site.archives.category.path }}" rel="category tag">{{ category }}</a>
                 {% endfor %}
             </span>
             <span class="post-date">
                 <i class="fa fa-clock-o"></i>&nbsp;<a href="{{ page.subposts[0].permalink | default: page.permalink }}">{{ page.date | date:'%d-%m-%Y'}}</a>
             </span>
             <span class="by-author">
-                <i class="fa fa-user"></i>&nbsp;<span class="author vcard"><a href="/contributor/{{ page.contributor | to_url }}">{{ page.contributor }}</a></span>
+                <i class="fa fa-user"></i>&nbsp;<span class="author vcard"><a href="{{ page.contributor | slugify | prepend:site.archives.contributor.path }}">{{ page.contributor }}</a></span>
             </span>
         </div>
         <div class="entry-content clearfix">
@@ -30,7 +30,7 @@ layout: chrome
         </div>
         <footer class="entry-meta post-tags">
             {% for tag in page.tags %}
-            <a href="/tag/{{ tag | slugify | to_url }}">{{ tag | escape }}</a>
+            <a href="{{ tag | slugify | prepend:site.archives.tag.path }}">{{ tag | escape }}</a>
             {% endfor %}
         </footer>
     </article>

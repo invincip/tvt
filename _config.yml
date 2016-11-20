@@ -27,6 +27,20 @@ gems:
   - jekyll-paginate
 paginate: 10
 paginate_path: "/page/:num/"
+archives:
+  tag:
+    display: thẻ
+    path: /the/
+  category:
+    display: thể loại
+    path: /
+  contributor:
+    display: người đăng
+    path: /nguoi-dang/
+  author:
+    display: tác giả
+    path: /tac-gia/
+    
 # Build settings
 markdown: kramdown
 exclude: [Gemfile, Gemfile.lock, firebase.json, vendor]

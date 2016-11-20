@@ -3,7 +3,11 @@ layout: chrome
 ---
 <div class="post-archive blog-posts readable-content">
     <header class="page-header">
-        <h1 class="page-title">Thể loại truyện <span class="on">→</span> <span>{{ page.title | escape }}</span></h1>
+        <h1 class="page-title">
+            Truyện theo {{ site.data.archives[page.archive_type] | default:page.archive_type }}
+            <span class="on">→</span>
+            <span>{{ page.title | escape }}</span>
+        </h1>
     </header>
     <div class="post-list">
         <ul>

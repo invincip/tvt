@@ -1,6 +1,6 @@
 module Jekyll
   class ArchivePage < Page
-    def initialize(site, base, dir, category)
+    def initialize(site, base, dir, name)
       @site = site
       @base = base
       @dir = dir
@@ -8,7 +8,7 @@ module Jekyll
 
       self.process(@name)
       self.read_yaml(File.join(base, '_layouts'), 'archive.html')
-      self.data['title'] = "#{category}"
+      self.data['title'] = "#{name}"
     end
   end
   
@@ -17,19 +17,29 @@ module Jekyll
       @site = site
       
       # Generate tag archive
+      site.tags.each do |tag, posts|
+        pages = paginate(posts, tag, 'tag', site.config['archives']['tag']['path'])
+        site.pages.concat pages
+      end
       
       # Generate category archive
       site.categories.each do |category, posts|
-        pages = paginate(posts, category)
+        pages = paginate(posts, category, 'category', site.config['archives']['category']['path'])
         site.pages.concat pages
       end
       
       # Generate contributor archive
-      
+      contributors = site.posts.docs.group_by do |post|
+        post.data['contributor']
+      end
+      contributors.each do |contributor, posts|
+        pages = paginate(posts, contributor, 'contributor', site.config['archives']['contributor']['path'])
+        site.pages.concat pages
+      end
       
     end
     
-    def paginate(posts, name, type = 'category', base = '/')
+    def paginate(posts, name, type, base)
       site = @site
       per_page = site.config['paginate']
       paginate_path = site.config['paginate_path']
