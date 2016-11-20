@@ -26,6 +26,7 @@ collections:
 gems:
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-feed
 paginate: 10
 paginate_path: "/page/:num/"
 archives:
