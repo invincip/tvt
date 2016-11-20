@@ -1,7 +1,7 @@
 require 'stringex_lite'
 
 module Jekyll
-  module WpFilter
+  module CustomFilter
     def wpautop(pee, br = true)
       return '' if pee.strip == ''
       allblocks = '(?:table|thead|tfoot|caption|col|colgroup|tbody|tr|td|th|div|dl|dd|dt|ul|ol|li|pre|select|option|form|map|area|blockquote|address|math|style|p|h[1-6]|hr|fieldset|noscript|legend|section|article|aside|hgroup|header|footer|nav|figure|figcaption|details|menu|summary)'
@@ -141,4 +141,4 @@ module Jekyll
   end
 end
 
-Liquid::Template.register_filter(Jekyll::WpFilter)
+Liquid::Template.register_filter(Jekyll::CustomFilter)

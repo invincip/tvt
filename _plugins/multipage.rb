@@ -1,5 +1,5 @@
 module Jekyll
-  class NextPageGenerator < Generator
+  class MultiPageGenerator < Generator
     def generate(site)
       post_subposts = []
       
