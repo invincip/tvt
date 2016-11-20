@@ -25,8 +25,13 @@ body {
         }
     }
 }
-.entry-meta .pageviews .count {
-    color: #444;
+.entry-meta {
+    + .entry-meta {
+        padding-top: 0;
+    }
+    > span > span {
+        color: #444;
+    }
 }
 h1, h2, h3, h4, h5, h6, .main-navigation ul li, dt {
     font-family: "Noticia Text", Georgia, serif;
@@ -153,5 +158,28 @@ nav.page-links {
                 float: none;
             }
         }
+    }
+}
+
+amp-social-share {
+    &[type] {
+        font: normal normal normal 14px/1 FontAwesome;
+        background-color: transparent;
+        background-image: none;
+        display: inline-block;
+        color: #444;
+        margin: 0 2px;
+    }
+    &[type=facebook]:before {
+        content: "\f09a";
+    }
+    &[type=twitter]:before {
+        content: "\f099";
+    }
+    &[type=gplus]:before {
+        content: "\f0d5";
+    }
+    &[type=tumblr]:before {
+        content: "\f173";
     }
 }

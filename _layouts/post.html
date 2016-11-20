@@ -19,8 +19,17 @@ layout: chrome
             <span class="by-author">
                 <i class="fa fa-user"></i>&nbsp;<span class="author vcard"><a href="{{ page.contributor | slugify | prepend:site.archives.contributor.path }}">{{ page.contributor }}</a></span>
             </span>
+        </div>
+        <div class="entry-meta">
             <span class="pageviews">
                 <i class="fa fa-eye"></i>&nbsp;<span class="count">{{ page.subposts[0].pageviews | default:page.pageviews | default: 0 | number }}</span>
+            </span>
+            <span class="share">
+                <i class="fa fa-share"></i>&nbsp;<span>Chia sẻ tới</span>
+                <amp-social-share type="facebook" data-param-app_id="690309941023930" height="13px" width="auto"></amp-social-share>
+                <amp-social-share type="twitter" height="13px" width="auto"></amp-social-share>
+                <amp-social-share type="gplus" height="13px" width="auto"></amp-social-share>
+                <amp-social-share type="tumblr" height="13px" width="auto"></amp-social-share>
             </span>
         </div>
         <div class="entry-content clearfix">
