@@ -6,7 +6,7 @@ before_install:
   - nvm install stable
   - nvm use node
   - npm install -g firebase-tools
-  - export GOOGLE_PRIVATE_KEY="$(echo -e $GOOGLE_PRIVATE_KEY)"
+  - export GOOGLE_PRIVATE_KEY="$(echo $GOOGLE_PRIVATE_KEY | base64 -d)"
 script:
   - bundle exec jekyll build
   - $(npm --global bin)/firebase deploy --token "$FIREBASE_API_TOKEN"
