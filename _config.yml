@@ -25,6 +25,7 @@ collections:
     output: true
 gems:
   - jekyll-paginate
+  - jekyll-sitemap
 paginate: 10
 paginate_path: "/page/:num/"
 archives:
