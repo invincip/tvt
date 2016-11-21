@@ -4,6 +4,11 @@ layout: chrome
 <div class="readable-content blog-single">
     <article>
         <header class="entry-header">
+            {% if page.thumbnail and page.subposts == nil or page.thumbnail and page.subpost_index == 0 %}
+            <div class="featured-image">
+                <amp-img layout="responsive" alt="{{ page.title }}" src="{{ page.thumbnail.path }}" width="{{ page.thumbnail.width }}" height="{{ page.thumbnail.height }}"></amp-img>
+            </div>
+            {% endif %}
             <h1 class="entry-title">{{ page.title }}</h1>
         </header>
         <div class="entry-meta">
