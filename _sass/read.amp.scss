@@ -71,6 +71,11 @@ body {
   color: #444;
 }
 
+h4 {
+    font-size: 0.90em;
+    margin: 1.0em 0 .6em 0;
+}
+
 .middle {
   padding-bottom: 4em;
   overflow: hidden;
@@ -594,6 +599,35 @@ div.selector {
       content: " ";
       display: table;
       clear: both;
+    }
+  }
+}
+
+.nav-single {
+  padding: 3em 0;
+  font-size: .9em;
+  .meta-nav {
+    margin-right: .6em;
+  }
+  .nav-next {
+    .meta-nav {
+      margin-left: .6em;
+      margin-right: 0;
+    }
+    text-align: right;
+  }
+  h4 {
+    color: #aaa;
+  }
+  a {
+    color: #333;
+    border-bottom: 1px dotted #ccc;
+    &:hover {
+      color: #000;
+      background-color: #f7f7f7;
+    }
+    &:active {
+      background-color: #eee;
     }
   }
 }
