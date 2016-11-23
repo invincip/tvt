@@ -631,3 +631,21 @@ div.selector {
     }
   }
 }
+.not-found {
+    padding: 2em 0;
+    text-align: center;
+    
+    h1 {
+        margin: 0 0 .1em 0;
+        font-size: 8em;
+        letter-spacing: .03em;
+        line-height: 1;
+        color: #333;
+        text-shadow: 1px 1px 0 #fff,2px 2px 0 #ccc,3px 3px 0 #ccc,4px 4px 0 #ccc;
+    }
+    
+    p {
+        font-size: .9em;
+        font-style: italic;
+    }
+}
