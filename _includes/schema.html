@@ -4,6 +4,9 @@
 <meta property="og:url" content="{{ page.subposts[0].url | default:page.url | prepend:site.baseurl | prepend:site.url }}" />
 <meta property="og:image" content="{{ page.thumbnail.path | default:'/logo.jpg' | prepend:site.baseurl | prepend:site.url }}" />
 <meta property="book:release_date" content="{{ page.date | date: "%Y-%m-%d" }}" />
+{% if page.author %}
+<meta property="book:author" content="{{ page.author }}" />
+{% endif %}
 <script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -11,7 +14,8 @@
     "headline": "{{ page.subposts[0].title | default:page.title | escape }}",
     "bookFormat": "EBook",
     "numberOfPages": "{{ page.subposts | size | default:1 }}",
-    "datePublished": "{{ page.date | date: "%Y-%m-%d" }}"
+    "datePublished": "{{ page.date | date: "%Y-%m-%d" }}"{% if page.author %},
+    "author": "{{ page.author }}"{% endif %}
 }
 </script>
 {% else %}
