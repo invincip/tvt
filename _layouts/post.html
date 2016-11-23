@@ -53,19 +53,21 @@ layout: chrome
     </article>
     <nav class="row-fluid nav-single">
         <div class="span6 nav-previous">
-            {% if page.previous %}
+            {% assign previous_page = page.subposts[0].previous | default: page.previous %}
+            {% if previous_page.previous %}
             <h4>Truyện trước</h4>
-            <a href="{{ page.previous.url }}" rel="prev">
-                <span class="meta-nav">←</span> {{ page.previous.title }}
+            <a href="{{ previous_page.previous.url }}" rel="prev">
+                <span class="meta-nav">←</span> {{ previous_page.previous.title }}
             </a>
             {% endif %}
         </div>
         
         <div class="span6 nav-next">
-            {% if page.next %}
+            {% assign next_page = page.subposts[0].next | default: page.next %}
+            {% if previous_page.next %}
             <h4>Truyện sau</h4>
-            <a href="{{ page.next.url }}" rel="next">
-                {{ page.next.title }} <span class="meta-nav">→</span>
+            <a href="{{ previous_page.next.url }}" rel="next">
+                {{ previous_page.next.title }} <span class="meta-nav">→</span>
             </a>
             {% endif %}
         </div>
