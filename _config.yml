@@ -44,6 +44,7 @@ archives:
     path: /tac-gia/
 ga: 'UA-17412298-1'
 ga_profile_id: 'ga:34611732'
+fb_app_id: '690309941023930'
     
 # Build settings
 markdown: kramdown
