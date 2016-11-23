@@ -13,7 +13,7 @@
     "@type": "Book",
     "headline": "{{ page.subposts[0].title | default:page.title | escape }}",
     "bookFormat": "EBook",
-    "numberOfPages": "{{ page.subposts | size | default:1 }}",
+    "numberOfPages": "{{ page.subposts | size | min:1 }}",
     "datePublished": "{{ page.date | date: "%Y-%m-%d" }}"{% if page.author %},
     "author": "{{ page.author }}"{% endif %}
 }
