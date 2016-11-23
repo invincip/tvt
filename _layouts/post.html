@@ -54,20 +54,20 @@ layout: chrome
     <nav class="row-fluid nav-single">
         <div class="span6 nav-previous">
             {% assign previous_page = page.subposts[0].previous | default: page.previous %}
-            {% if previous_page.previous %}
+            {% if previous_page %}
             <h4>Truyện trước</h4>
-            <a href="{{ previous_page.previous.url }}" rel="prev">
-                <span class="meta-nav">←</span> {{ previous_page.previous.title }}
+            <a href="{{ previous_page.url }}" rel="prev">
+                <span class="meta-nav">←</span> {{ previous_page.title }}
             </a>
             {% endif %}
         </div>
         
         <div class="span6 nav-next">
             {% assign next_page = page.subposts[0].next | default: page.next %}
-            {% if next_page.next %}
+            {% if next_page %}
             <h4>Truyện sau</h4>
-            <a href="{{ previous_page.next.url }}" rel="next">
-                {{ next_page.next.title }} <span class="meta-nav">→</span>
+            <a href="{{ next_page.url }}" rel="next">
+                {{ next_page.title }} <span class="meta-nav">→</span>
             </a>
             {% endif %}
         </div>
