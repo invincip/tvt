@@ -64,10 +64,10 @@ layout: chrome
         
         <div class="span6 nav-next">
             {% assign next_page = page.subposts[0].next | default: page.next %}
-            {% if previous_page.next %}
+            {% if next_page.next %}
             <h4>Truyện sau</h4>
             <a href="{{ previous_page.next.url }}" rel="next">
-                {{ previous_page.next.title }} <span class="meta-nav">→</span>
+                {{ next_page.next.title }} <span class="meta-nav">→</span>
             </a>
             {% endif %}
         </div>
