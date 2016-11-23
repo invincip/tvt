@@ -44,7 +44,7 @@ layout: chrome
     <h2 class="entry-title">THEO DÒNG THỜI GIAN</h2>
     <div class="post-list">
         <ul>
-            {% assign second_half = paginator.posts | first_half %}
+            {% assign second_half = paginator.posts | second_half %}
             {% for post in second_half %}
             <li>
                 <h3>
