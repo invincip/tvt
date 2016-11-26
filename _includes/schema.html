@@ -1,6 +1,6 @@
 {% if page.layout == 'post' %}
 <meta property="og:title" content="{{ page.subposts[0].title | default:page.title | escape }}">
-<meta property="og:type" content="book" />
+<meta property="og:type" content="books.book" />
 <meta property="og:url" content="{{ page.subposts[0].url | default:page.url | prepend:site.baseurl | prepend:site.url }}" />
 <meta property="og:image" content="{{ page.thumbnail.path | default:'/logo.jpg' | prepend:site.baseurl | prepend:site.url }}" />
 <meta property="book:release_date" content="{{ page.date | date: "%Y-%m-%d" }}" />
