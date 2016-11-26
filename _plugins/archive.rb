@@ -16,19 +16,29 @@ module Jekyll
     def generate(site)
       @site = site
       
-      # Generate tag archive
+      # Call all methods start with 'generate_'
+      methods.select do |method|
+        method.to_s.start_with? 'generate_'
+      end.each do |method|
+        self.send method, site
+      end
+    end
+    
+    def generate_tags(site)
       site.tags.each do |tag, posts|
         pages = paginate(posts, tag, 'tag', site.config['archives']['tag']['path'])
         site.pages.concat pages
       end
-      
-      # Generate category archive
+    end
+    
+    def generate_categories(site)
       site.categories.each do |category, posts|
         pages = paginate(posts, category, 'category', site.config['archives']['category']['path'])
         site.pages.concat pages
       end
-      
-      # Generate contributor archive
+    end
+    
+    def generate_contributors(site)
       contributors = site.posts.docs.group_by do |post|
         post.data['contributor']
       end
@@ -36,7 +46,45 @@ module Jekyll
         pages = paginate(posts, contributor, 'contributor', site.config['archives']['contributor']['path'])
         site.pages.concat pages
       end
+    end
+    
+    def generate_authors(site)
+      authors = site.posts.docs.reduce({}) do |memo, post|
+        if post.data['author']
+          if post.data['author'].is_a? String
+            post.data['author'] = [post.data['author']]
+          end
+          post.data['author'].each do |author|
+            if memo[author]
+              memo[author] << post
+            else
+              memo[author] = [post]
+            end
+          end
+        end
+        
+        memo
+      end
       
+      # Check for conflicting URLs
+      author_permalinks = authors.keys.group_by do |author|
+        Utils.slugify(author)
+      end
+      has_conflicting_url = false
+      author_permalinks.each do |permalink, authors|
+        if authors.size > 1
+          STDERR.puts "Conflicting URLs for #{authors}"
+          has_conflicting_url = true
+        end
+      end
+      if has_conflicting_url
+        exit 1
+      end
+      
+      authors.each do |author, posts|
+        pages = paginate(posts, author, 'author', site.config['archives']['author']['path'])
+        site.pages.concat pages
+      end
     end
     
     def paginate(posts, name, type, base)

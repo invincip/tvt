@@ -16,6 +16,11 @@ layout: chrome
             <span class="post-date">
                 <i class="fa fa-clock-o"></i>&nbsp;<a href="{{ page.subposts[0].permalink | default: page.permalink }}">{{ page.date | date:'%d-%m-%Y'}}</a>
             </span>
+            {% if page.author %}
+            <span class="by-author">
+                <i class="fa fa-pencil"></i>&nbsp;<span class="author vcard">{% for author in page.author %}<a href="{{ author | slugify | prepend:site.archives.author.path }}">{{ author }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</span>
+            </span>
+            {% endif %}
             <span class="by-author">
                 <i class="fa fa-user"></i>&nbsp;<span class="author vcard"><a href="{{ page.contributor | slugify | prepend:site.archives.contributor.path }}">{{ page.contributor }}</a></span>
             </span>
