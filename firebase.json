@@ -1,6 +1,11 @@
 {
   "hosting": {
     "public": "_site",
-    "cleanUrls": "true"
+    "cleanUrls": "true",
+    "redirects": [{
+        "source": "/tag",
+        "destination": "/the",
+        "type": 301
+    }]
   }
 }
