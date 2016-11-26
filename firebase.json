@@ -3,8 +3,8 @@
     "public": "_site",
     "cleanUrls": "true",
     "redirects": [{
-        "source": "/tag",
-        "destination": "/the",
+        "source": "/tag/:tag*",
+        "destination": "/the/:tag*",
         "type": 301
     }]
   }
