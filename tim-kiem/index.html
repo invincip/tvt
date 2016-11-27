@@ -11,6 +11,14 @@ layout: chrome
       var gcse = document.createElement('script');
       gcse.type = 'text/javascript';
       gcse.async = true;
+      gcse.onload = function focusInput() {
+        var input = document.getElementById('gsc-i-id1');
+        if (input) {
+            input.focus();
+        } else {
+            setTimeout(focusInput, 100);
+        }
+      };
       gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
       var s = document.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(gcse, s);
