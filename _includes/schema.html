@@ -16,7 +16,10 @@
     "bookFormat": "EBook",
     "numberOfPages": "{{ page.subposts | size | min:1 }}",
     "datePublished": "{{ page.date | date: "%Y-%m-%d" }}"{% if page.author %},
-    "author": "{{ page.author }}"{% endif %}
+    "author": {
+        "@type": "Person",
+        "name": "{{ page.author }}"
+    }{% endif %}
 }
 </script>
 {% else %}
