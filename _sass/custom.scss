@@ -206,7 +206,7 @@ amp-social-share {
     &-large {
         font-size: large;
     }
-    $colors: "red" "blue" "gray" "000080" "888888" "800080" "c0c0c0" "808080" "ff00ff" "a52a2a" "008000" "696969" "708090" "999999" "808000";
+    $colors: "red" "blue" "gray" "navy" "silver" "000080" "008080" "888888" "800080" "c0c0c0" "808080" "ff00ff" "a52a2a" "008000" "696969" "708090" "999999" "808000";
     @each $color in $colors {
         &-#{$color} {
             color: #{"#" + $color};
