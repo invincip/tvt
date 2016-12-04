@@ -4,7 +4,7 @@
 <meta property="og:url" content="{{ page.subposts[0].url | default:page.url | prepend:site.baseurl | prepend:site.url }}" />
 <meta property="og:image" content="{{ page.thumbnail.path | default:'/logo.jpg' | prepend:site.baseurl | prepend:site.url }}" />
 <meta property="book:release_date" content="{{ page.date | date: "%Y-%m-%d" }}" />
-<meta property="og:description" content="{{ page.content | strip | strip_html | strip_newlines | truncatewords:100 }}" />
+<meta property="og:description" content="{{ page.content | strip | strip_html | strip_newlines | truncatewords:100 | escape }}" />
 {% if page.author %}
 <meta property="book:author" content="{{ page.author }}" />
 {% endif %}
