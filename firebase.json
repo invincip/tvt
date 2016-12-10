@@ -3,8 +3,20 @@
     "public": "_site",
     "cleanUrls": "true",
     "redirects": [{
-        "source": "/tag/:tag*",
-        "destination": "/the/:tag*",
+        "source": "/tag/:name*",
+        "destination": "/the/:name*",
+        "type": 301
+    },{
+        "source": "/category/:name*",
+        "destination": "/:name*",
+        "type": 301
+    },{
+        "source": "/author/:name*",
+        "destination": "/nguoi-dang/:name*",
+        "type": 301
+    },{
+        "source": "/the/dien-dan-taoxanh/:name*",
+        "destination": "/the/dien-dan-tao-xanh/:name*",
         "type": 301
     }]
   }
