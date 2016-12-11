@@ -1,0 +1,9 @@
+{% if page.subposts.size > 1 %}
+{% assign prev_index = page.subpost_index | minus:1 %}{% assign next_index = page.subpost_index | plus:1 %}
+{% if prev_index > -1 %}<link rel="prev" href="{{ page.subposts[prev_index].permalink }}" />{% endif %}
+{% if next_index < page.subposts.size %}<link rel="next" href="{{ page.subposts[next_index].permalink }}" />{% endif %}
+{% endif %}
+{% if page.paginator.next_page %}<link rel="next" href="{{ page.paginator.next_page_path }}" />{% endif %}
+{% if page.paginator.previous_page %}<link rel="prev" href="{{ page.paginator.previous_page_path }}" />{% endif %}
+{% if paginator.next_page %}<link rel="next" href="{{ paginator.next_page_path }}" />{% endif %}
+{% if paginator.previous_page %}<link rel="prev" href="{{ paginator.previous_page_path }}" />{% endif %}
